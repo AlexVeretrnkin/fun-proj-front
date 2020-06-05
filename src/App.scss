@@ -2,6 +2,8 @@
   text-align: center;
 }
 
+$color: white;
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -21,7 +23,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: $color;
 }
 
 .App-link {
