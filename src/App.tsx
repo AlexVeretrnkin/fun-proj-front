@@ -1,4 +1,5 @@
 import React from 'react';
+import { match } from 'react-router';
 import { BrowserRouter as Router, Link, Route, Switch, useParams, useRouteMatch } from 'react-router-dom';
 
 import Header from './header/header';
@@ -32,7 +33,7 @@ function About() {
 }
 
 function Topics() {
-  let match = useRouteMatch();
+  let match: match = useRouteMatch();
 
   return (
     <div>

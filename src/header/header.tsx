@@ -1,5 +1,10 @@
-import { Grid } from '@material-ui/core';
+import AppBar from '@material-ui/core/AppBar';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
 import { makeStyles } from '@material-ui/core/styles';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import MenuIcon from '@material-ui/icons/Menu';
 import React from 'react';
 
 import './header.scss';
@@ -20,19 +25,16 @@ export default function Header() {
   const classes = useStyles();
 
   return (
-    <Grid className='header' container justify='center' alignItems='center'>
-      <Grid container item justify='center' xs={3}>
-        <Link to="/">Info</Link>
-      </Grid>
-      <Grid container item justify='center' xs={3}>
-        <Link to="/about">Admin</Link>
-      </Grid>
-      <Grid container item justify='center' xs={3}>
-        <Link to="/about">Uploads</Link>
-      </Grid>
-      <Grid container item justify='center' xs={3}>
-        <Link to="/topics">Titles</Link>
-      </Grid>
-    </Grid>
+    <AppBar position="static">
+      <Toolbar>
+        <IconButton edge="start" color="inherit" aria-label="menu">
+          <MenuIcon />
+        </IconButton>
+        <Typography variant="h6">
+          News
+        </Typography>
+        <Button color="inherit">Login</Button>
+      </Toolbar>
+    </AppBar>
   );
 }
