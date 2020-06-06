@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Redirect } from 'react-router-dom';
 
 import Header from './header/header';
 import { RouteConfigModel } from './models/route-config.model';
@@ -20,6 +20,7 @@ export default function App() {
               <RouteWithSubRoutes key={index} {...route} />
           )
         }
+        <Redirect from='*' to='/ongoings' />
       </Switch>
     </Router>
   );

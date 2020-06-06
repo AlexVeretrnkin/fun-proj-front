@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles(
   {
     root: {
       flexGrow: 1,
+      marginBottom: 30
     },
     tabs: {
       margin: 'auto'
