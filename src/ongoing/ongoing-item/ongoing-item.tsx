@@ -1,29 +1,31 @@
+import React from 'react';
+
 import {Card} from '@material-ui/core';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import CardMedia from "@material-ui/core/CardMedia";
-import React from 'react';
 
 import './ongoing-item.scss';
 
-export default function OngoingItem() {
+import {CardInfoModel} from "../../models/card-info.model";
+
+export default function OngoingItem(props: CardInfoModel) {
     return (
         <Card className='card'>
             <CardMedia
                 className='card__media'
-                image="https://static.anilibria.tv/upload/release/270x390/7439.jpg?1566259183"
+                image={props.imgUrl}
             />
             <CardContent className='card__content'>
                 <Typography className='card__text card__text_title' color="textPrimary" variant='h6' gutterBottom>
-                    Мастера Меча Онлайн: Алисизация
+                    {props.title}
                     <Typography className='card__text' component='p' color="textSecondary">
-                        Серии 36
+                        Серии {props.series}
                     </Typography>
                 </Typography>
 
                 <Typography className='card__text card__text_description' color="textSecondary">
-                    Underworld - мир, ранее недоступный человеческому пониманию. Мир, со своими законами - "Индексом
-                    Запретов". За его соблюдением следит "Церковь Аксиомы" и рыцари единства, стать...
+                    {props.description}
                 </Typography>
             </CardContent>
         </Card>
