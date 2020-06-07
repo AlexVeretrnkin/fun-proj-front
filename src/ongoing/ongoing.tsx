@@ -48,7 +48,7 @@ export default function Ongoing() {
                 {info.map((infoItem: CardInfoModel, index: number) =>
                     <Grid key={index}  item>
                         <div className='grid-item'>
-                            <OngoingItem{...infoItem} />
+                            <OngoingItem index={index} {...infoItem} />
                         </div>
                     </Grid>
                 )}
