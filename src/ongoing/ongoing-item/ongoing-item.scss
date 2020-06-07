@@ -1,5 +1,7 @@
 $animation-speed: .2s;
 
+$ease-out-sine: cubic-bezier(0.61, 1, 0.88, 1);
+
 .card {
   width: 250px;
   height: 400px;
@@ -11,13 +13,11 @@ $animation-speed: .2s;
   &__media {
     height: 75%;
     width: 100%;
-
-    transition: height $animation-speed ease;
   }
 
   &__content {
     transition:
-            transform $animation-speed ease-in,
+            transform $animation-speed $ease-out-sine,
             background $animation-speed;
   }
 
@@ -43,9 +43,9 @@ $animation-speed: .2s;
 
   &:hover {
     .card__content {
-      background: rgba(255, 255, 255, .8);
+      background: rgba(255, 255, 255, 1);
 
-      transform: translateY(-100%);
+      transform: translateY(-70%);
 
       border-radius: 4px 4px 0 0;
     }
@@ -56,10 +56,6 @@ $animation-speed: .2s;
       &_description {
         opacity: 1;
       }
-    }
-
-    .card__media {
-      height: 100%;
     }
   }
 }
