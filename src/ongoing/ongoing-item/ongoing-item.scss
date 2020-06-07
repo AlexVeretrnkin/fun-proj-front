@@ -1,4 +1,75 @@
+$animation-speed: .2s;
+
 .card {
-  width: 300px;
-  height: 350px;
+  width: 250px;
+  height: 400px;
+
+  cursor: pointer;
+
+  animation: anim 1s linear;
+
+  &__media {
+    height: 75%;
+    width: 100%;
+
+    transition: height $animation-speed ease;
+  }
+
+  &__content {
+    transition:
+            transform $animation-speed ease-in,
+            background $animation-speed;
+  }
+
+  &__text {
+    color: white;
+
+    transition: color $animation-speed;
+
+    &_title {
+      font-weight: 600 !important;
+
+      line-height: 1.1 !important;
+    }
+
+    &_description {
+      opacity: 0;
+
+      transition: opacity $animation-speed;
+
+      color: white;
+    }
+  }
+
+  &:hover {
+    .card__content {
+      background: rgba(255, 255, 255, .8);
+
+      transform: translateY(-100%);
+
+      border-radius: 4px 4px 0 0;
+    }
+
+    .card__text {
+      color: black;
+
+      &_description {
+        opacity: 1;
+      }
+    }
+
+    .card__media {
+      height: 100%;
+    }
+  }
+}
+
+@keyframes anim {
+  0% {
+    transform: rotateY(180deg);
+  }
+
+  100% {
+    transform: rotateY(360deg);
+  }
 }
