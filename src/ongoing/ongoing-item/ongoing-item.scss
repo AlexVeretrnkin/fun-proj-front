@@ -23,6 +23,18 @@ $ease-out-sine: cubic-bezier(0.61, 1, 0.88, 1);
     border-radius: 4px 4px 0 0;
 
     transition: transform $animation-speed $ease-out-sine;
+
+    &:hover {
+      transform: translateY(-70%);
+
+      .card__text {
+        color: black;
+
+        &_description {
+          opacity: 1;
+        }
+      }
+    }
   }
 
   &__text {
@@ -42,20 +54,6 @@ $ease-out-sine: cubic-bezier(0.61, 1, 0.88, 1);
       transition: opacity $animation-speed;
 
       color: white;
-    }
-  }
-
-  &:hover {
-    .card__content {
-      transform: translateY(-70%);
-    }
-
-    .card__text {
-      color: black;
-
-      &_description {
-        opacity: 1;
-      }
     }
   }
 }

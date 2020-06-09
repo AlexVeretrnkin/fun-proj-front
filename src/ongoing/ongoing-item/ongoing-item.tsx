@@ -9,11 +9,13 @@ import './ongoing-item.scss';
 
 import {CardInfoModel} from "../../models/card-info.model";
 
+const animationDelayCoefficient: number = 0.1;
+
 export default function OngoingItem(props: CardInfoModel & {index: number}) {
   console.log(props.index);
 
     return (
-        <Card className='card' style={{animationDelay: (props.index * 0.1).toString() + 's'}}>
+        <Card className='card' style={{animationDelay: (props.index * animationDelayCoefficient).toString() + 's'}}>
             <CardMedia
                 className='card__media'
                 image={props.imgUrl}
