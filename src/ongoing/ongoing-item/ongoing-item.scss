@@ -3,6 +3,8 @@ $animation-speed: .2s;
 $ease-out-sine: cubic-bezier(0.61, 1, 0.88, 1);
 
 .card {
+  --empty-offset: 100px;
+
   width: 250px;
   height: 400px;
 
@@ -18,6 +20,11 @@ $ease-out-sine: cubic-bezier(0.61, 1, 0.88, 1);
   }
 
   &__content {
+    min-height: 25%;
+
+    display: flex;
+    flex-direction: column;
+
     background: white;
 
     border-radius: 4px 4px 0 0;
@@ -25,7 +32,9 @@ $ease-out-sine: cubic-bezier(0.61, 1, 0.88, 1);
     transition: transform $animation-speed $ease-out-sine;
 
     &:hover {
-      transform: translateY(-70%);
+      $translateValue: calc(-100% + var(--empty-offset));
+
+      transform: translateY($translateValue);
 
       .card__text {
         color: black;
@@ -52,8 +61,6 @@ $ease-out-sine: cubic-bezier(0.61, 1, 0.88, 1);
       opacity: 0;
 
       transition: opacity $animation-speed;
-
-      color: white;
     }
   }
 }
