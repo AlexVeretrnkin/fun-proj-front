@@ -1,12 +1,12 @@
 import { RouteConfigModel } from '../models/route-config.model';
 
-import Ongoing from '../ongoing/ongoing';
+import OngoingContainer from '../containers/ongoing.container'
 import Upload from '../upload/upload';
 
 export const routes: RouteConfigModel[] = [
   {
     path: "/ongoings",
-    component: Ongoing
+    component: OngoingContainer
   },
   {
     path: "/upload",

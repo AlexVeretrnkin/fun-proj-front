@@ -6,7 +6,7 @@ import OngoingItem from './ongoing-item/ongoing-item';
 import './ongoing.scss';
 import {CardInfoModel} from "../models/card-info.model";
 
-const info: CardInfoModel[] = [
+/*const info: CardInfoModel[] = [
     {
         description:
             'Underworld - мир, ранее недоступный человеческому пониманию. Мир, со своими законами - "Индексом Запретов".' +
@@ -38,20 +38,22 @@ const info: CardInfoModel[] = [
         series: 36,
         title: 'Мастера Меча Онлайн: Алисизация'
     }
-];
+];*/
 
-export default function Ongoing() {
-    return (
-        <div className="root">
-            <Grid className="container" container justify='center'>
-                {info.map((infoItem: CardInfoModel, index: number) =>
-                    <Grid key={index}  item>
-                        <div className='grid-item'>
-                            <OngoingItem index={index} {...infoItem} />
-                        </div>
-                    </Grid>
-                )}
-            </Grid>
-        </div>
-    );
-}
+// @ts-ignore
+const Ongoing = ({ongoings}: CardInfoModel[]) => (
+    <div className="root">
+        <Grid className="container" container justify='center'>
+            {ongoings.map((infoItem: CardInfoModel, index: number) =>
+                <Grid key={index} item>
+                    <div className='grid-item'>
+                        <OngoingItem index={index} {...infoItem} />
+                    </div>
+                </Grid>
+            )}
+        </Grid>
+    </div>
+);
+
+
+export default Ongoing;
