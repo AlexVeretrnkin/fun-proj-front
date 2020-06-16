@@ -2,9 +2,9 @@ $animation-speed: .2s;
 
 $ease-out-sine: cubic-bezier(0.61, 1, 0.88, 1);
 
-.card {
-  --empty-offset: 100px;
+$empty-offset: 100px;
 
+.card {
   width: 250px;
   height: 400px;
 
@@ -32,9 +32,7 @@ $ease-out-sine: cubic-bezier(0.61, 1, 0.88, 1);
     transition: transform $animation-speed $ease-out-sine;
 
     &:hover {
-      $translateValue: calc(-100% + var(--empty-offset));
-
-      transform: translateY($translateValue);
+      transform: translateY(calc(-100% + #{$empty-offset}));
 
       .card__text {
         color: black;
