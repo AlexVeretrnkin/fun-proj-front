@@ -2,11 +2,11 @@ $animation-speed: .2s;
 
 $ease-out-sine: cubic-bezier(0.61, 1, 0.88, 1);
 
-$empty-offset: 100px;
+$empty-offset: 420 * 0.25;
 
 .card {
-  width: 250px;
-  height: 400px;
+  width: 280px;
+  height: 420px;
 
   cursor: pointer;
 
@@ -32,7 +32,7 @@ $empty-offset: 100px;
     transition: transform $animation-speed $ease-out-sine;
 
     &:hover {
-      transform: translateY(calc(-100% + #{$empty-offset}));
+      transform: translateY(calc(-100% + #{$empty-offset}px));
 
       .card__text {
         color: black;
@@ -50,6 +50,8 @@ $empty-offset: 100px;
     transition: color $animation-speed;
 
     &_title {
+      font-size: 1.1rem !important;
+
       font-weight: 600 !important;
 
       line-height: 1.1 !important;

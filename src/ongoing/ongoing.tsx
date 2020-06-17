@@ -5,43 +5,9 @@ import OngoingItem from './ongoing-item/ongoing-item';
 
 import './ongoing.scss';
 import {CardInfoModel} from "../models/card-info.model";
+import {connect} from "react-redux";
 
-/*const info: CardInfoModel[] = [
-    {
-        description:
-            'Underworld - мир, ранее недоступный человеческому пониманию. Мир, со своими законами - "Индексом Запретов".' +
-            ' За его соблюдением следит "Церковь Аксиомы" и рыцари единства, стать...',
-        imgUrl: 'https://static.anilibria.tv/upload/release/270x390/7439.jpg?1566259183',
-        series: 36,
-        title: 'Мастера Меча Онлайн: Алисизация'
-    },
-    {
-        description:
-            'Underworld - мир, ранее недоступный человеческому пониманию. Мир, со своими законами - "Индексом Запретов".' +
-            ' За его соблюдением следит "Церковь Аксиомы" и рыцари единства, стать...',
-        imgUrl: 'https://static.anilibria.tv/upload/release/270x390/7439.jpg?1566259183',
-        series: 36,
-        title: 'Мастера Меча Онлайн: Алисизация'
-    },
-    {
-        description:
-            'Underworld - мир, ранее недоступный человеческому пониманию. Мир, со своими законами - "Индексом Запретов".' +
-            ' За его соблюдением следит "Церковь Аксиомы" и рыцари единства, стать...',
-        imgUrl: 'https://static.anilibria.tv/upload/release/270x390/7439.jpg?1566259183',
-        series: 36,
-        title: 'Мастера Меча Онлайн: Алисизация'
-    },
-    {
-        description:
-            'Underworld - мир, ранее недоступный человеческому пониманию.',
-        imgUrl: 'https://static.anilibria.tv/upload/release/270x390/7439.jpg?1566259183',
-        series: 36,
-        title: 'Мастера Меча Онлайн: Алисизация'
-    }
-];*/
-
-// @ts-ignore
-const Ongoing = ({ongoings}: CardInfoModel[]) => (
+const Ongoing = ({ongoings}: {ongoings: CardInfoModel[]}) => (
     <div className="root">
         <Grid className="container" container justify='center'>
             {ongoings.map((infoItem: CardInfoModel, index: number) =>
@@ -55,5 +21,11 @@ const Ongoing = ({ongoings}: CardInfoModel[]) => (
     </div>
 );
 
+let getOngoings = (state: any) => {
+    return {
+        ongoings: state.ongoings
+    };
+};
 
-export default Ongoing;
+export default connect(getOngoings)(Ongoing)
+

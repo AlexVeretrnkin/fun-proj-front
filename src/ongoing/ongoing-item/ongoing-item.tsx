@@ -17,6 +17,7 @@ export default function OngoingItem(props: CardInfoModel & {index: number}) {
             <CardMedia
                 className='card__media'
                 image={props.imgUrl}
+                component='img'
             />
             <CardContent className='card__content'>
                 <Typography className='card__text card__text_title' color="textPrimary" variant='h6' gutterBottom>

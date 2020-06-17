@@ -3,14 +3,26 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {createStore} from "redux";
+import {applyMiddleware, createStore} from "redux";
 import rootReducer from './reducers'
 import {getOngoings} from "./actions/ongoing.action";
 import {Provider} from "react-redux";
+import thunk from "redux-thunk";
+import axios from "axios"
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
-store.dispatch(getOngoings());
+const test = async () => {
+    let res = await axios.get('http://localhost:3000/ongoings');
+
+    store.dispatch(
+        getOngoings(
+            res.data
+        )
+    );
+}
+
+test();
 
 console.log(store.getState());
 
