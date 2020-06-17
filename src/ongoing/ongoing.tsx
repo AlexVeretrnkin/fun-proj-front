@@ -7,14 +7,12 @@ import './ongoing.scss';
 import {CardInfoModel} from "../models/card-info.model";
 import {connect} from "react-redux";
 
-const Ongoing = ({ongoings}: {ongoings: CardInfoModel[]}) => (
+const Ongoing = ({ongoings}: { ongoings: CardInfoModel[] }) => (
     <div className="root">
         <Grid className="container" container justify='center'>
             {ongoings.map((infoItem: CardInfoModel, index: number) =>
-                <Grid key={index} item>
-                    <div className='grid-item'>
-                        <OngoingItem index={index} {...infoItem} />
-                    </div>
+                <Grid className='grid-item' key={index} item>
+                    <OngoingItem index={index} {...infoItem} />
                 </Grid>
             )}
         </Grid>

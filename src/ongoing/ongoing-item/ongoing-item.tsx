@@ -11,7 +11,7 @@ import {CardInfoModel} from "../../models/card-info.model";
 
 const animationDelayCoefficient: number = 0.1;
 
-export default function OngoingItem(props: CardInfoModel & {index: number}) {
+export default function OngoingItem(props: CardInfoModel & { index: number }) {
     return (
         <Card className='card' style={{animationDelay: (props.index * animationDelayCoefficient).toString() + 's'}}>
             <CardMedia

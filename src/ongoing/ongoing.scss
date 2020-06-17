@@ -3,10 +3,13 @@
 }
 
 .container {
-  padding-left: 30px;
+  //padding: 0 15px;
 }
 
 .grid-item {
-  margin-right: 30px;
-  margin-bottom: 30px;
+  margin: 0 15px 15px !important;
+}
+
+.item {
+  flex: 1 1 auto;
 }
