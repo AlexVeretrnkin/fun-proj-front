@@ -1,12 +1,13 @@
 import { RouteConfigModel } from '../models/route-config.model';
 
 import Upload from '../upload/upload';
-import Ongoing from "../ongoing/ongoing";
+
+import ConnectedOngoings from "../high-order/ongoing.hoc";
 
 export const routes: RouteConfigModel[] = [
   {
     path: "/ongoings",
-    component: Ongoing
+    component: ConnectedOngoings
   },
   {
     path: "/upload",
