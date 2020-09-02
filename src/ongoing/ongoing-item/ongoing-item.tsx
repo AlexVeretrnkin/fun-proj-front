@@ -8,17 +8,20 @@ import CardMedia from "@material-ui/core/CardMedia";
 import './ongoing-item.scss';
 
 import {CardInfoModel} from "../../models/card-info.model";
+import {Link} from "react-router-dom";
 
 const animationDelayCoefficient: number = 0.1;
 
 export default function OngoingItem(props: CardInfoModel & { index: number }) {
     return (
         <Card className='card' style={{animationDelay: (props.index * animationDelayCoefficient).toString() + 's'}}>
-            <CardMedia
-                className='card__media'
-                image={props.imgUrl}
-                component='img'
-            />
+            <Link to={`title/${props.id}`}>
+                <CardMedia
+                    className='card__media'
+                    image={props.imgUrl}
+                    component='img'
+                />
+            </Link>
             <CardContent className='card__content'>
                 <Typography className='card__text card__text_title' color="textPrimary" variant='h6' gutterBottom>
                     {props.title}

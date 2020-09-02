@@ -1,8 +1,8 @@
 import {CardInfoModel} from "../models/card-info.model";
 
-export const getOngoings = (payload: CardInfoModel[] = []) => {
+export const getTitle = (payload: CardInfoModel) => {
     return {
-        type: 'GET_ONGOINGS',
+        type: 'GET_TITLE',
         payload: payload
     }
 }

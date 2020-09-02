@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import {Ongoing} from "../ongoing/ongoing";
 import {getOngoings} from "../actions/ongoing.action";
+
 import axios from "axios";
 
 let getOngoing = (state: any) => {
@@ -13,7 +14,7 @@ let getOngoing = (state: any) => {
 const mapDispatchToProps = (dispatch: Function) => {
     return {
         getOngoings: async () => {
-            dispatch(getOngoings((await axios.get('http://localhost:3000/ongoings')).data))
+            dispatch(getOngoings((await axios.get('http://192.168.0.50:3000/ongoings')).data))
         }
     }
 }
