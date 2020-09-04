@@ -3,6 +3,7 @@ import {Ongoing} from "../ongoing/ongoing";
 import {getOngoings} from "../actions/ongoing.action";
 
 import axios from "axios";
+import {environment} from "../environments/environment";
 
 let getOngoing = (state: any) => {
     return {
@@ -14,7 +15,7 @@ let getOngoing = (state: any) => {
 const mapDispatchToProps = (dispatch: Function) => {
     return {
         getOngoings: async () => {
-            dispatch(getOngoings((await axios.get('http://192.168.0.50:3000/ongoings')).data))
+            dispatch(getOngoings((await axios.get(`${environment.apiUrl}ongoings`)).data))
         }
     }
 }
