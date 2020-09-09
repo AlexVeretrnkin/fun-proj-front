@@ -6,10 +6,11 @@ import {CardInfoModel} from "../models/card-info.model";
 import {Button, Grid} from "@material-ui/core";
 
 import './chosen-title.scss';
+import {TitleVideoModel} from "../models/titleVideo.model";
 
 export const ChosenTitle = (
     {title, titleVideo, setTitle, downloadTitle, setVideo}:
-        { title: CardInfoModel, titleVideo: string, setTitle: Function, downloadTitle: Function, setVideo: Function }
+        { title: CardInfoModel, titleVideo: TitleVideoModel, setTitle: Function, downloadTitle: Function, setVideo: Function }
 ) => {
     let {id} = useParams();
 
@@ -38,10 +39,11 @@ export const ChosenTitle = (
 
             <Grid container
                   justify="center"
-                  alignItems="center">
+                  alignItems="center"
+                  className={'video__container'}>
                 <Grid item xs={12}>
-                    <video src={titleVideo} className={'video'} controls>
-                        <source src={titleVideo} type="video/mp4"/>
+                    <video src={titleVideo.videoUrl} className={'video'} controls>
+                        <source src={titleVideo.videoUrl} type="video/mp4"/>
                     </video>
                 </Grid>
             </Grid>
@@ -55,7 +57,7 @@ export const ChosenTitle = (
                 {
                     Array.from(Array(title.series).keys()).map((series: number) => (
                         <Grid item key={series}>
-                            <Button variant="outlined"
+                            <Button variant={series + 1 === titleVideo.currentSeries ? "contained" : "outlined"}
                                     color="primary"
                                     onClick={() => setVideo(series + 1)}
                             >

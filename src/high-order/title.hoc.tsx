@@ -7,6 +7,8 @@ import {downloadTitle, getTitleInfo, getTitleVideoLink} from "../core/title/titl
 import {VideoFileQueryModel} from "../models/title-video-query.model";
 import {getTitleVideo} from "../actions/title-video.action";
 
+import axios, {AxiosResponse} from "axios";
+
 let titleId: number;
 
 let getFoundedTitle = (state: any) => {
@@ -18,18 +20,46 @@ let getFoundedTitle = (state: any) => {
     };
 };
 
-
 const mapDispatchToProps = (dispatch: Function) => {
     return {
         setTitle: async (id: number) => {
             titleId = id;
 
-            dispatch(getTitleVideo(getTitleVideoLink(new VideoFileQueryModel(await titleId, 1))))
+            // axios({
+            //     url: getTitleVideoLink(new VideoFileQueryModel(titleId, 1)),
+            //     method: 'GET',
+            //     responseType: 'blob', // important
+            // }).then((response) => {
+            //     const url = window.URL.createObjectURL(new Blob([response.data]));
+            //
+            //     dispatch(getTitleVideo(
+            //         {
+            //             videoUrl: url,
+            //             currentSeries: 1
+            //         }
+            //     ));
+            // });
+
+            dispatch(getTitleVideo(
+                {
+                    videoUrl: getTitleVideoLink(new VideoFileQueryModel(titleId, 1)),
+                    currentSeries: 1
+                }
+            ));
 
             dispatch(getTitle(await getTitleInfo(id)));
         },
         downloadTitle: async (id: number) => await downloadTitle(id),
-        setVideo: (series: number = 1) => dispatch(getTitleVideo(getTitleVideoLink(new VideoFileQueryModel(titleId, series))))
+        setVideo: (series: number = 1) => {
+            dispatch(
+                getTitleVideo(
+                    {
+                        currentSeries: series,
+                        videoUrl: getTitleVideoLink(new VideoFileQueryModel(titleId, series))
+                    }
+                )
+            )
+        }
     }
 }
 
